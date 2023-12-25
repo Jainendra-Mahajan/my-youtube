@@ -1,13 +1,48 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice"
+import { useEffect, useState } from "react";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cachedResults } from "../utils/searchSlice";
 
 const Header = () => {
+
+    const [searchValue, setSearchValue] = useState("");
+    const [suggestion, setSuggestion] = useState([]);
+    const [showSuggestion, setShowSuggestion] = useState(false);
+    const searchCache = useSelector(store => store.search);
 
     const dispatch = useDispatch();
     const handleToggle = () => {
         dispatch(toggleMenu());
     }
 
+    const getSearchSuggestion = async () => {
+        const data = await fetch(YOUTUBE_SEARCH_API + searchValue);
+        const json = await data.json();
+        // console.log(json[1]);
+        setSuggestion(json[1]);
+
+        dispatch(cachedResults({
+            [searchValue]: json[1]
+        }
+        ));
+    }
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (searchCache[searchValue]) {
+                setSuggestion(searchCache[searchValue])
+            }
+            else {
+                getSearchSuggestion()
+            }
+        }, 200);
+
+        return () => {
+            clearTimeout(timer);
+        }
+
+    }, [searchValue]);
     return (
         <div className="grid grid-flow-col shadow-lg p-2">
             <div className="flex">
@@ -22,9 +57,23 @@ const Header = () => {
             </div>
 
             <div>
-                <input type="text" className="m-2 mr-0 w-3/4 p-2 border border-gray-500 rounded-l-full" />
-                <button className="text-center bg-gray-200 m-2 ml-0 border border-gray-500 p-2 px-5 rounded-r-full">🔍</button>
+                <input type="text"
+                    className="m-2 mb-1 mr-0 w-3/4 p-2 border border-gray-500 rounded-l-full"
+                    value={searchValue}
+                    onChange={(e) => setSearchValue(e.target.value)}
+                    onFocus={() => setShowSuggestion(true)}
+                    onBlur={() => setShowSuggestion(false)} />
+                <button className="text-center bg-gray-200 m-2 ml-0 mb-0 border border-gray-500 p-2 px-5 rounded-r-full">🔍</button>
+
+                {showSuggestion && <div className="fixed bg-white w-[27rem] mx-3 p-3 pt-0 -mt-1 rounded-lg border border-gray-200">
+                    <ul>
+                        {suggestion.map((item) => <li key={item} className="py-2 hover:bg-gray-200 rounded-lg ">🔍 {item}</li>)}
+
+
+                    </ul>
+                </div>}
             </div>
+
 
             <div className="col-span-1 flex justify-end">
                 <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png"

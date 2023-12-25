@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import useVideoFetchApi from '../utils/useVideoFetchApi'
 import VideoCard from './VideoCard';
+import { Link } from 'react-router-dom';
 
 const VideoContainer = () => {
     useVideoFetchApi();
@@ -11,7 +12,7 @@ const VideoContainer = () => {
 
     return (
         <div className='flex flex-wrap'>
-            {videoList.map((video) => <VideoCard key={video.id} data={video} />)}
+            {videoList.map((video) => <Link to={"/watch?v=" + video.id} key={video.id} ><VideoCard data={video} /></Link>)}
 
         </div>
     )
