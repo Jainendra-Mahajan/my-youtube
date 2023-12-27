@@ -13,3 +13,5 @@
 - Set Up the Youtube API key
 - Fetch the data using the API key
 - Displaying the data on the Main container
+- Built the Live chat functionality
+- Used API polling concept to display the live chat
