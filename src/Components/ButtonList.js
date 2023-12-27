@@ -1,6 +1,6 @@
 import React from 'react'
 import Button from './Button';
-const listItems = ["All", "kapil Sharma", "Akshay Saini", "Namaste React", "Sports", "World Cup", "IPL", "New to You", "Technology", "Computer Programming"];
+const listItems = ["All", "kapil Sharma", "Akshay Saini", "New to You", "Technology", "Computer Programming", "Akshay Saini", "New to You", "Technology"];
 
 const ButtonList = () => {
 
