@@ -3,6 +3,8 @@ import { toggleMenu } from "../utils/appSlice"
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cachedResults } from "../utils/searchSlice";
+import SearchResults from "./SearchResults";
+import { Link } from "react-router-dom";
 
 const Header = () => {
 
@@ -43,43 +45,51 @@ const Header = () => {
 
     }, [searchValue]);
     return (
-        <div className="grid grid-flow-col shadow-lg p-2">
-            <div className="flex">
-                <img src="https://www.svgrepo.com/show/312300/hamburger-menu.svg"
-                    className="p-1 m-1 h-12 cursor-pointer"
-                    alt="Hamburger Menu"
-                    onClick={() => handleToggle()} />
 
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png"
-                    className="p-1 m-2 w-24"
-                    alt="Logo" />
+        <>
+            <div className="grid grid-flow-col shadow-lg p-2">
+                <div className="flex">
+                    <img src="https://www.svgrepo.com/show/312300/hamburger-menu.svg"
+                        className="p-1 m-1 h-12 cursor-pointer"
+                        alt="Hamburger Menu"
+                        onClick={() => handleToggle()} />
+
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png"
+                        className="p-1 m-2 w-24"
+                        alt="Logo" />
+                </div>
+
+                <div>
+                    <input type="text"
+                        className="m-2 mb-1 mr-0 w-3/4 p-2 border border-gray-500 rounded-l-full"
+                        value={searchValue}
+                        onChange={(e) => setSearchValue(e.target.value)}
+                        onFocus={() => setShowSuggestion(true)}
+                        onBlur={() => setShowSuggestion(false)} />
+                    <Link to={"results?q=" + searchValue}><button className="text-center bg-gray-200 m-2 ml-0 mb-0 border border-gray-500 p-2 px-5 rounded-r-full">🔍</button></Link >
+
+                    {searchValue && showSuggestion && <div className="fixed bg-white w-[27rem] mx-3 p-3 pt-0 -mt-1 rounded-lg border border-gray-200">
+                        <ul>
+                            {suggestion.map((item) => <li key={item} className="py-2 hover:bg-gray-200 rounded-lg "
+                            >🔍 {item}</li>)}
+
+                        </ul>
+                    </div>}
+                </div>
+
+
+                <div className="col-span-1 flex justify-end">
+                    <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png"
+                        className="p-2 m-2 w-12"
+                        alt="user-logo" />
+                </div>
+
+
             </div>
 
-            <div>
-                <input type="text"
-                    className="m-2 mb-1 mr-0 w-3/4 p-2 border border-gray-500 rounded-l-full"
-                    value={searchValue}
-                    onChange={(e) => setSearchValue(e.target.value)}
-                    onFocus={() => setShowSuggestion(true)}
-                    onBlur={() => setShowSuggestion(false)} />
-                <button className="text-center bg-gray-200 m-2 ml-0 mb-0 border border-gray-500 p-2 px-5 rounded-r-full">🔍</button>
-
-                {showSuggestion && <div className="fixed bg-white w-[27rem] mx-3 p-3 pt-0 -mt-1 rounded-lg border border-gray-200">
-                    <ul>
-                        {suggestion.map((item) => <li key={item} className="py-2 hover:bg-gray-200 rounded-lg ">🔍 {item}</li>)}
 
 
-                    </ul>
-                </div>}
-            </div>
-
-
-            <div className="col-span-1 flex justify-end">
-                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png"
-                    className="p-2 m-2 w-12"
-                    alt="user-logo" />
-            </div>
-        </div>
+        </>
     )
 }
 

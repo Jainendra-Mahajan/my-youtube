@@ -1,11 +1,11 @@
 import "./App.css"
-import Header from "./Components/Header";
 import Body from "./Components/Body";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainContainer from "./Components/MainContainer";
 import WatchPage from "./Components/WatchPage";
+import SearchResults from "./Components/SearchResults";
 
 function App() {
 
@@ -20,14 +20,16 @@ function App() {
       {
         path: "watch",
         element: <WatchPage />
-      }
+      },
+      {
+        path: "results",
+        element: <SearchResults />
+      },
     ]
   }])
   return (
     <div>
       <Provider store={appStore}>
-        <Header />
-
         <RouterProvider router={appRouter}>
           <Body />
         </RouterProvider>
