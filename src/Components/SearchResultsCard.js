@@ -2,8 +2,6 @@ import React from 'react'
 
 const SearchResultsCard = ({ video }) => {
 
-    // console.log(video);
-
     const { title, channelTitle, thumbnails, description, publishedAt } = video.snippet
     return (
         <div className='flex shadow-lg'>

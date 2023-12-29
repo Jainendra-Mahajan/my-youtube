@@ -3,7 +3,6 @@ import { toggleMenu } from "../utils/appSlice"
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cachedResults } from "../utils/searchSlice";
-import SearchResults from "./SearchResults";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -29,6 +28,7 @@ const Header = () => {
         ));
     }
 
+
     useEffect(() => {
         const timer = setTimeout(() => {
             if (searchCache[searchValue]) {
@@ -47,7 +47,7 @@ const Header = () => {
     return (
 
         <>
-            <div className="grid grid-flow-col shadow-lg p-2">
+            <div className="bg-white grid grid-flow-col p-2 fixed w-full z-50">
                 <div className="flex">
                     <img src="https://www.svgrepo.com/show/312300/hamburger-menu.svg"
                         className="p-1 m-1 h-12 cursor-pointer"
@@ -59,9 +59,10 @@ const Header = () => {
                         alt="Logo" />
                 </div>
 
-                <div>
+                <form
+                    onSubmit={(e) => e.preventDefault()}>
                     <input type="text"
-                        className="m-2 mb-1 mr-0 w-3/4 p-2 border border-gray-500 rounded-l-full"
+                        className="m-2 mb-1 mr-0 w-3/4 p-2 border border-gray-500 rounded-l-full "
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                         onFocus={() => setShowSuggestion(true)}
@@ -70,12 +71,12 @@ const Header = () => {
 
                     {searchValue && showSuggestion && <div className="fixed bg-white w-[27rem] mx-3 p-3 pt-0 -mt-1 rounded-lg border border-gray-200">
                         <ul>
-                            {suggestion.map((item) => <li key={item} className="py-2 hover:bg-gray-200 rounded-lg "
-                            >🔍 {item}</li>)}
+                            {suggestion.map((item) => <Link to={"results?q=" + item}><li key={item} className="py-2 hover:bg-gray-200 rounded-lg "
+                            >🔍 {item}</li></Link>)}
 
                         </ul>
                     </div>}
-                </div>
+                </form>
 
 
                 <div className="col-span-1 flex justify-end">
@@ -85,7 +86,7 @@ const Header = () => {
                 </div>
 
 
-            </div>
+            </div >
 
 
 

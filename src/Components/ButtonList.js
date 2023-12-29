@@ -5,7 +5,7 @@ const listItems = ["All", "kapil Sharma", "Akshay Saini", "New to You", "Technol
 const ButtonList = () => {
 
     return (
-        <div className='flex'>
+        <div className='flex mt-20'>
             {listItems.map((item, index) => <Button key={index} name={item} />)}
         </div>
 

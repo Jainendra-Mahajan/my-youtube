@@ -13,10 +13,14 @@ const videoSlice = createSlice({
 
         addSearchVideoList: (state, action) => {
             state.searchVideoList = action.payload
+        },
+
+        removeSearchVideos: (state) => {
+            state.searchVideoList = [];
         }
 
     }
 });
 
-export const { addVideos, addSearchVideoList } = videoSlice.actions;
+export const { addVideos, addSearchVideoList, removeSearchVideos } = videoSlice.actions;
 export default videoSlice.reducer;

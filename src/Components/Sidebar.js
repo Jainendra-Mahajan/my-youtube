@@ -7,7 +7,7 @@ const Sidebar = () => {
     const isMenuOpen = useSelector(store => store.app.isMenuOpen);
 
     return (
-        !isMenuOpen ? null : <div className='w-[12%] shadow-lg m-2 text-left flex'>
+        !isMenuOpen ? null : <div className='w-[12%] shadow-lg m-2 text-left mt-20'>
             <ul>
                 <Link to={"/"}><li className='flex items-center hover:bg-gray-300 rounded-lg'>
                     <img src="https://endlessicons.com/wp-content/uploads/2012/11/home-icon-614x460.png" alt="Home Icon"
@@ -24,6 +24,7 @@ const Sidebar = () => {
                         className='w-6 m-2' />
                     Subscription </li>
             </ul>
+
 
         </div>
     )
