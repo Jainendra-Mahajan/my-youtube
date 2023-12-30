@@ -54,9 +54,9 @@ const Header = () => {
                         alt="Hamburger Menu"
                         onClick={() => handleToggle()} />
 
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png"
+                    <Link to={"/"}><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/2560px-Logo_of_YouTube_%282015-2017%29.svg.png"
                         className="p-1 m-2 w-24"
-                        alt="Logo" />
+                        alt="Logo" /></Link>
                 </div>
 
                 <form

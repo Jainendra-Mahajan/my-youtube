@@ -9,11 +9,11 @@ const VideoCard = ({ data }) => {
             <img src={thumbnails.medium.url} alt="thumbnail-image"
                 className='w-full rounded-lg' />
             <ul>
-                <li className='font-bold p-2 pl-0'>{title}</li>
+                <li className='text-md font-bold p-2 pl-0'>{title}</li>
 
 
-                <li className='items-end'>{channelTitle}</li>
-                <li>{statistics.likeCount} views</li>
+                <li className='items-end text-xs'>{channelTitle}</li>
+                <li className='text-xs'>{statistics.likeCount} views</li>
             </ul>
         </div>
     )

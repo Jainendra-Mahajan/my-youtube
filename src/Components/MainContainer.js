@@ -1,11 +1,9 @@
 import React from 'react'
-import ButtonList from './ButtonList'
 import VideoContainer from './VideoContainer'
 
 const MainContainer = () => {
     return (
-        <div className='w-[88%] ml-14 '>
-            <ButtonList />
+        <div className='w-[88%] ml-48 '>
             <VideoContainer />
         </div>
     )
