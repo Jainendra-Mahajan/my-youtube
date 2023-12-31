@@ -12,7 +12,7 @@ const SportsCategory = () => {
     if (sportsData == null) return null;
 
     return (
-        <div className='ml-[2%] mt-[5%] flex flex-wrap w-[88%]'>
+        <div className='ml-5 md:ml-48 mt-20 flex flex-wrap w-[88%]'>
             {sportsData.map((sport, index) => <Link key={index} to={"/watch?v=" + sport.id.videoId}><CategoryVideoCard video={sport} /></Link>)}
         </div>
     )

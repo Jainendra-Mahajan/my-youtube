@@ -9,16 +9,14 @@ const WatchPage = () => {
 
     const dispatch = useDispatch();
     const [searchParams] = useSearchParams();
-    // console.log(searchParams.get("v"));
-
 
     useEffect(() => {
         dispatch(closeMenu());
     }, [])
     return (
         <div className="flex flex-col w-full mt-20">
-            <div className="px-5 flex w-full">
-                <div className="ml-5">
+            <div className="px-5 inline-block md:flex w-full">
+                <div className="md:ml-5">
                     <iframe
                         width="900"
                         height="500"
@@ -30,10 +28,11 @@ const WatchPage = () => {
                     ></iframe>
                 </div>
                 <div className="w-full">
+                    <h1 className='font-bold md:text-center mb-1'>Live Chat : </h1>
                     <ChatComponent />
                 </div>
-            </div>
-            <CommentsContainer />
+            </div >
+            <CommentsContainer id={searchParams.get("v")} />
         </div>
     );
 };

@@ -3,7 +3,7 @@ import VideoContainer from './VideoContainer'
 
 const MainContainer = () => {
     return (
-        <div className='w-[88%] ml-48 '>
+        <div className='ml-4 md:w-[88%] md:ml-48 '>
             <VideoContainer />
         </div>
     )

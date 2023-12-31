@@ -2,17 +2,17 @@ import React from 'react'
 
 const Comment = ({ data }) => {
 
-    const { name, text, replies } = data;
+    const { snippet } = data;
     return (
         <div className='ml-2 flex bg-gray-100 shadow-lg rounded-lg m-2'>
             <div>
-                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png"
-                    className="p-1 m-2 w-10"
+                <img src={snippet?.topLevelComment?.snippet?.authorProfileImageUrl}
+                    className="p-1 m-2 w-10 rounded-lg"
                     alt="user-logo" />
             </div>
-            <div>
-                <p className='font-bold'>{name}</p>
-                <p>{text}</p>
+            <div className='ml-5'>
+                <p className='font-bold'>{snippet?.topLevelComment?.snippet?.authorDisplayName}</p>
+                <p>{snippet?.topLevelComment?.snippet?.textOriginal}</p>
             </div>
 
 

@@ -7,7 +7,7 @@ const Sidebar = () => {
     const isMenuOpen = useSelector(store => store.app.isMenuOpen);
 
     return (
-        !isMenuOpen ? null : <div className='fixed w-[12%] shadow-lg m-2 text-left mt-20 bg-white z-50 h-full'>
+        !isMenuOpen ? null : <div className='fixed w-[35%] md:w-[12%] shadow-lg m-2 text-left mt-20 bg-white z-50 h-full'>
             <ul>
                 <Link to={"/"}><li className='flex items-center hover:bg-gray-300 rounded-lg'>
                     <img src="https://endlessicons.com/wp-content/uploads/2012/11/home-icon-614x460.png" alt="Home Icon"

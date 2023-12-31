@@ -7,7 +7,8 @@ const videoSlice = createSlice({
         searchVideoList: [],
         musicVideoList: [],
         sportsVideoList: [],
-        learningVideoList: []
+        learningVideoList: [],
+        commentList: []
     },
     reducers: {
         addVideos: (state, action) => {
@@ -20,6 +21,10 @@ const videoSlice = createSlice({
 
         removeSearchVideos: (state) => {
             state.searchVideoList = [];
+        },
+
+        addCommentsForVideo: (state, action) => {
+            state.commentList = action.payload
         },
 
         addMusicVideoList: (state, action) => {
@@ -35,5 +40,5 @@ const videoSlice = createSlice({
     }
 });
 
-export const { addVideos, addSearchVideoList, removeSearchVideos, addMusicVideoList, addSportsVideoList, addLearningVideoList } = videoSlice.actions;
+export const { addVideos, addSearchVideoList, removeSearchVideos, addMusicVideoList, addSportsVideoList, addLearningVideoList, addCommentsForVideo } = videoSlice.actions;
 export default videoSlice.reducer;

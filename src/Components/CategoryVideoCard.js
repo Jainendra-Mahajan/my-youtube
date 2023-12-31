@@ -6,7 +6,7 @@ const CategoryVideoCard = ({ video }) => {
     const { title, channelTitle, thumbnails } = video.snippet
 
     return (
-        <div className='mt-3 p-2 w-72 shadow-lg h-80'>
+        <div className='mt-3 p-2 w-96 shadow-lg h-[300px] md:h-[300px]'>
             <img src={thumbnails.high.url} alt="thumbnail-image"
                 className='w-full rounded-lg h-40' />
             <ul>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import LiveMessage from './LiveMessage'
-import { generate, makeid } from '../utils/heplper'
+import { generate, makeid } from '../utils/helper'
 import { useDispatch, useSelector } from 'react-redux'
 import { addLiveChatMessage } from '../utils/liveChatSlice'
 

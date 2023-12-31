@@ -13,7 +13,7 @@ const MusicCategory = () => {
     if (musicData == null) return null;
 
     return (
-        <div className='ml-[2%] mt-[5%] flex flex-wrap w-[88%]'>
+        <div className='ml-5 md:ml-48 mt-[15%] md:mt-20 flex flex-wrap w-[88%]'>
             {musicData.map((music, index) => <Link key={index} to={"/watch?v=" + music.id.videoId}><CategoryVideoCard video={music} /></Link>)}
         </div>
     )
