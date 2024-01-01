@@ -64,7 +64,7 @@ const Header = () => {
 
 
                     <input type="text"
-                        className="mr-1m-2 mb-1 mr-0 w-[75%] md:w-3/4 p-1 md:p-2 border border-gray-500 rounded-l-full "
+                        className="mb-1 mr-0 w-[75%] md:w-3/4 p-1 md:p-2 border border-gray-500 rounded-l-full "
                         value={searchValue}
                         onChange={(e) => setSearchValue(e.target.value)}
                         onFocus={() => setShowSuggestion(true)}
@@ -73,7 +73,7 @@ const Header = () => {
 
                     {searchValue && showSuggestion && <div className="fixed bg-white w-[27rem] mx-3 p-3 pt-0 -mt-1 rounded-lg border border-gray-200">
                         <ul>
-                            {suggestion.map((item, index) => <Link to={"results?q=" + item}><li key={index} className="py-2 hover:bg-gray-200 rounded-lg "
+                            {suggestion.map((item, index) => <Link key={index} to={"/results?q=" + item}><li key={index} className="py-2 hover:bg-gray-200 rounded-lg "
                             >🔍 {item}</li></Link>)}
 
                         </ul>

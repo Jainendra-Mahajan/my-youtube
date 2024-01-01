@@ -4,7 +4,7 @@ const SearchResultsCard = ({ video }) => {
 
     const { title, channelTitle, thumbnails, description, publishedAt } = video.snippet
     return (
-        <div className='flex shadow-lg'>
+        <div className='md:ml-48 flex shadow-lg'>
             <div className='m-2 p-2 rounded-lg'>
                 <img src={thumbnails.high.url} alt="Search Thumbnail" className='w-80 h-52 rounded-lg' />
             </div>
@@ -21,7 +21,7 @@ const SearchResultsCard = ({ video }) => {
 
                 </div>
                 <p className='m-2 ml-0 p-2 text-xs'>{description}</p>
-                <p className='m-2 ml-0 p-2 text-xs font-bold'>Release Date - {publishedAt}</p>
+                <p className='m-2 ml-0 p-2 text-xs font-bold'>Release Date - {publishedAt.slice(0, 10)}</p>
             </div>
         </div>
     )
