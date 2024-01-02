@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CategoryVideoCard from './CategoryVideoCard';
 
 const LearningCategory = () => {
-    const category = "Coding"
+    const category = "Coding Videos"
     useCategoryApi({ category });
     const dispatch = useDispatch();
     const learningData = useSelector((store) => store.video.learningVideoList);
