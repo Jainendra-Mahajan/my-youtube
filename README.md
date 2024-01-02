@@ -1,8 +1,6 @@
 # My-Youtube
 
-- A Video streaming platform created using the ReactJs and Tailwind powered with Redux state management tool.
-
-# Steps -
+- A Video streaming platform created using the ReactJs and Tailwind powered with Redux state management tool
 
 - Set up the application with create react App.
 - Set up Tailwind CSS
@@ -15,3 +13,5 @@
 - Displaying the data on the Main container
 - Built the Live chat functionality
 - Used API polling concept to display the live chat
+- Category Section which on click displays the specific category videos
+- Responsive App design
