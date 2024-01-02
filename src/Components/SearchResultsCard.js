@@ -6,7 +6,7 @@ const SearchResultsCard = ({ video }) => {
     return (
         <div className='md:ml-48 flex shadow-lg'>
             <div className='m-1 p-1 md:m-2 md:p-2 rounded-lg'>
-                <img src={thumbnails.high.url} alt="Search Thumbnail" className='w-auto md:w-80 h-auto md:h-52 rounded-lg' />
+                <img src={thumbnails.high.url} alt="Search Thumbnail" className='w-80 h-auto md:h-52 rounded-lg' />
             </div>
             <div className='ml-0 m-2 p-1 md:p-2 md:m-2 '>
                 <h1 className='text-xs md:text-xl font-bold'>

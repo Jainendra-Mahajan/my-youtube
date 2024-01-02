@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import CategoryVideoCard from './CategoryVideoCard';
 
 const SportsCategory = () => {
-    const category = "Sports"
+    const category = "Sports Videos"
     useCategoryApi({ category });
     const dispatch = useDispatch();
     const sportsData = useSelector((store) => store.video.sportsVideoList);
